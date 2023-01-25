@@ -34,30 +34,44 @@ const restaurant = {
         console.log(mainIngredient,otherIngredients);
     }
 };
-const rest1 = {
-    name: 'Capri',
-    // numGuests: 20,
-       numGuests: 0
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+    console.log(restaurant.openingHours.mon.open);
 }
-const rest2 = {
-    name: 'La Piazza',
-    owner: 'Giovanni Rossi'  
+
+// console.log(restaurant.openingHours.mon.open)
+
+// WITH optional chanining
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+// console.log(restaurant.openingHours.mon.open);
+
+// Example
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+    // console.log(day);
+    const open = restaurant?.openingHours[day]?.open ?? 'closed';
+    console.log(`On ${day}, we open at ${open}`);
+} 
+
+// Methods 
+console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+console.log(restaurant.orderRisotto?.(0,1) ?? 'Method does not exist');
+ 
+// Arrays
+// const users = [];
+const users = [    
+    {
+    name: 'Jonas',
+    email: 'Hello@jonas.io'
+    }
+];
+console.log(users[0]?.name ?? 'User array empty');
+
+if(users.length > 0) {
+    console.log(users[0]?.name);
+}else {
+    console.log('User arrays empty');
 }
-// OR assignment operator
-// rest1.numGuests = rest1.numGuests || 10;
-// rest2.numGuests = rest2.numGuests || 10;
-
-// rest1.numGuests ||= 10;
-// rest2.numGuests ||= 10;
-// nullish assignment operator (null or undefined)
-rest1.numGuests ??= 10;
-rest2.numGuests ??= 10;
-// AND assignment operator
-// rest2.owner = rest1.owner && '<ANONYMOUS>';
-// rest2.owner = rest2.owner && '<ANONYMOUS>';
-rest1.owner &&= '<ANONYMOUS>';
-rest2.owner &&= '<ANONYMOUS>'; 
-
-console.log(rest1,rest2);
-
-
