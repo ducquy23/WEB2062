@@ -7,15 +7,15 @@ const restaurant = {
     starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
     mainMenu: ['Pizza', 'Pasta', 'Risotto'],
     openingHours: {
-        thu: {
+        thu: { // thứ 5
             open: 12,
             close: 22,
         },
-        fri: {
+        fri: { // thứ 6
             open: 11,
             close: 23,
         },
-        sat: {
+        sat: { // chủ nhật
             open: 0,
             close: 24,
         }

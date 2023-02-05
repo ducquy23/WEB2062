@@ -30,7 +30,7 @@ const restaurant = {
         console.log(`Here is your deslicious pasta with
         ${ing1},${ing2} and ${ing3}`);
     },
-    orderPixzza: function(mainIngredient, ...otherIngredients) {
+    orderPizza: function(mainIngredient, ...otherIngredients) {
         console.log(mainIngredient,otherIngredients);
     }
 };
@@ -57,11 +57,11 @@ console.log(7 && 'Jonas');
 
 console.log('Hello' && 23 && null && 'Jonas');
 // Practical example
-if(restaurant.orderPixzza) {
-    restaurant.orderPixzza('mushrooms','spinach');
+if(restaurant.orderPizza) {
+    restaurant.orderPizza('mushrooms','spinach');
 }
 
-restaurant.orderPixzza && restaurant.orderPixzza('mushrooms','spinach');
+restaurant.orderPizza && restaurant.orderPizza('mushrooms','spinach');
 
 
 

@@ -30,7 +30,7 @@ const restaurant = {
         console.log(`Here is your deslicious pasta with
         ${ing1},${ing2} and ${ing3}`);
     },
-    orderPixzza: function(mainIngredient, ...otherIngredients) {
+    orderPizza: function(mainIngredient, ...otherIngredients) {
         console.log(mainIngredient,otherIngredients);
     }
 };
@@ -63,8 +63,8 @@ add(8, 2, 5, 2, 1 , 4);
 const x = [23, 5, 6];
 add(...x);
 
-restaurant.orderPixzza('mushrooms','onion','olives','spinash');
-restaurant.orderPixzza('mushrooms');
+restaurant.orderPizza('mushrooms','onion','olives','spinash');
+restaurant.orderPizza('mushrooms');
 
 
 
