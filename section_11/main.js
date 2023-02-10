@@ -168,6 +168,7 @@ console.log(withdrawals);
 /*
     ======= 153. The Reduce Method ========
 */
+/*
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 console.log(movements);
 // accumulator -> SNOWBALl
@@ -191,7 +192,129 @@ const max = movements.reduce((acc, mov) => {
     }
 }, movements[0]);
 console.log(max);
+*/
+/*
+    ====== 154. Coding Challege 2. ==========
+*/
+/*
+const checkDogs = function(dogsJulia,dogsKate) {
+    const dogJuliaCorrected = dogsJulia.slice();
+    dogJuliaCorrected.splice(0, 1);
+    dogJuliaCorrected.splice(-1);
+    const dogs = [...dogJuliaCorrected,...dogsKate];
+    // console.log(dogs);
+    dogs.forEach(function(dog, i) {
+        const checkDogs = (dog > 3 ) ? ` is an adult, and is ${dog} years old` : ` is still a puppy`;
+        console.log(`Dog number ${i + 1} ${checkDogs}`);
+    })
 
+}
+// checkDogs([3, 5, 2, 12, 7],[4, 1, 15, 8, 3]);
+const calcAverageHumanAge = function(ages) {
+    const humanAges = ages.map(age => age <=2 ? 2 * age : 16 + age * 4);
+    const adults = humanAges.filter(age => age >= 18);
+    const average = adults.reduce((acc, age) => acc + age,0) / adults.length;
+    return average;
+}
+const average1 = calcAverageHumanAge( [5, 2, 4, 1, 15, 8, 3]);
+console.log(average1);
+*/
+/*
+    ======= 155. The Magic Of Chaining Methods ======
+*/
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const eurToUsd = 1.1;
+// PIPELINE
+const totalDepositsUSD = movements.filter(function (mov) {
+    return mov > 0;
+}).map(function(mov, i, arr) {
+    // console.log(arr);
+    return mov * eurToUsd;
+}).reduce(function(acc, mov) {
+    return acc + mov;
+}, 0);
+console.log(totalDepositsUSD);
+*/
 
+/*
+    ====== 156. Coding Challege 3. ==========
+*/
+/*
+const checkDogs = function(dogsJulia,dogsKate) {
+    const dogJuliaCorrected = dogsJulia.slice();
+    dogJuliaCorrected.splice(0, 1);
+    dogJuliaCorrected.splice(-1);
+    const dogs = [...dogJuliaCorrected,...dogsKate];
+    // console.log(dogs);
+    dogs.forEach(function(dog, i) {
+        const checkDogs = (dog > 3 ) ? ` is an adult, and is ${dog} years old` : ` is still a puppy`;
+        console.log(`Dog number ${i + 1} ${checkDogs}`);
+    })
 
+}
+const calcAverageHumanAge = ages => ages.map(age => age <=2 ? 2 * age : 16 + age * 4).filter(age => age >= 18).
+reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+const average1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+console.log(average1);
+*/
+/*
+    ==== 157.The Find Method ========
+*/
+/*
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const firstWithdrawal =  movements.find(mov => mov < 0);
+console.log(movements);
+console.log(firstWithdrawal);
+console.log(accounts);
+*/
+/*
+    ====== 162. Flat and FlatMap =========
+*/
+const account1 = {
+    owner: 'Jonas Schmedtmann',
+    movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+    interestRate: 1.2, // %
+    pin: 1111,
+};
+
+const account2 = {
+    owner: 'Jessica Davis',
+    movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
+    interestRate: 1.5,
+    pin: 2222,
+};
+
+const account3 = {
+    owner: 'Steven Thomas Williams',
+    movements: [200, -200, 340, -300, -20, 50, 400, -460],
+    interestRate: 0.7,
+    pin: 3333,
+};
+
+const account4 = {
+    owner: 'Sarah Smith',
+    movements: [430, 1000, 700, 50, 90],
+    interestRate: 1,
+    pin: 4444,
+};
+
+const accounts = [account1, account2, account3, account4];
+const arr = [[1, 2, 3], [4, 5 , 6], 7, 8];
+// console.log(arr.flat());
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// flat 
+// const allMovements = accounts.map(mov => mov.movements);
+// const flatAllMovements = allMovements.flat();
+// const totalMovements = flatAllMovements.reduce((acc, mov) => acc + mov,0);
+// console.log(totalMovements);
+const overBalance = accounts.map(acc => acc.movements).flat().
+reduce((acc, mov) => acc + mov,0);
+console.log(overBalance);
+
+// flatMap
+const overBalance2 = accounts.flatMap(acc => acc.movements).reduce((acc, mov) => acc + mov, 0);
+console.log(overBalance2);
 
